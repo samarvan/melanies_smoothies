@@ -13,8 +13,12 @@ st.write(
 name_on_order = st.text_input("Name on Smoothie")
 st.write("The name on your Smoothie will be", name_on_order)
 
-cnx = st.connection("snowflake")
-session = cnx.session()
+#cnx = st.connection("snowflake")
+#session = cnx.session()
+
+conn = st.connection("snowflake")     # reads [snowflake] from secrets.toml
+session = conn.session()
+
 
 #session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col("FRUIT_NAME"))
