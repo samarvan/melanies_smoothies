@@ -16,6 +16,8 @@ st.write("The name on your Smoothie will be", name_on_order)
 #cnx = st.connection("snowflake")
 #session = cnx.session()
 
+ctx = st.secrets["snowflake"]
+
 conn = st.connection("snowflake")     # reads [snowflake] from secrets.toml
 session = conn.session()
 
